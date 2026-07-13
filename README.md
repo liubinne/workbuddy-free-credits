@@ -2,20 +2,16 @@
 
 免费开源、免费分享，每天自动领取自己 WorkBuddy 账号的签到积分。每位用户只操作自己电脑上当前登录的账号；工具不收集、不上传、不保存账号凭证。
 
-## 安装方法：复制下面这段话发给 WorkBuddy
+## 安装方法
 
-分享给别人时，只需要发送根目录里的 `安装说明-复制给WorkBuddy.txt`，不需要把整个源码文件夹交给对方。使用者打开安装说明，完整复制下面这段话给 WorkBuddy 即可：
+根目录里的 `安装说明-复制给WorkBuddy.txt` 已经分别写好两套复制话术，macOS 和 Windows 通用：
 
-```text
-请访问并下载这个公开、免费的开源项目：
-https://github.com/liubinne/workbuddy-free-credits
+1. **能访问 GitHub**：把 GitHub 在线安装话术复制给 WorkBuddy。WorkBuddy 会下载仓库、识别当前系统、检查环境、安装并验证。
+2. **不能访问 GitHub 或使用微信收到的 ZIP**：先解压 ZIP，在 WorkBuddy 中打开解压后的 `workbuddy-auto-checkin` 文件夹，再把本地安装话术复制给 WorkBuddy。这个过程不需要访问 GitHub。
 
-请先完整阅读仓库中的 README.md 和 SKILL.md，再在我当前这台电脑上安装“WorkBuddy 全自动免费领积分”。只操作我当前登录的 WorkBuddy 账号，默认每天 06:05 自动领取积分。请先执行 dry-run，检查并备份旧签到任务，再安装并立即验证。不要在聊天、命令输出或日志中显示、复制、上传我的 Token、Cookie 或登录文件内容。
+ZIP 本地安装必须使用当前文件夹中已经提供的文件，不允许 AI 猜测或重写代码。电脑还需要已经安装 Python 3；如果缺少 Python 3 且电脑不能联网，需要先通过其他方式取得 Python 安装程序。
 
-如果当前无法访问或下载 GitHub，请明确告诉我，不要猜测代码，也不要让我手工复制 Token。
-```
-
-WorkBuddy 会自动识别 macOS 或 Windows，下载仓库、检查登录状态、安装定时任务并验证结果。
+无论使用哪种安装方式，WorkBuddy 都会先识别 macOS 或 Windows，再调用对应的安装流程。本地方式解决的是“不能访问 GitHub”，不是“电脑完全断网”；完全断网时 WorkBuddy 的 AI 可能无法工作，每日领取也无法连接腾讯服务。
 
 ## 备用方法：双击安装
 
