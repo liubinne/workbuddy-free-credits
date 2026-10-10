@@ -113,5 +113,21 @@ class InstallerTests(unittest.TestCase):
         self.assertEqual(installer.main(["--platform", "windows", "--dry-run", "--time", "07:30"]), 0)
 
 
+class ParseResponseTests(unittest.TestCase):
+    def test_parse_response_returns_utf8_json_object(self):
+        response = core.parse_response('{"message":"签到成功","count":0}'.encode("utf-8"))
+        self.assertEqual(response, {"message": "签到成功", "count": 0})
+
+    def test_parse_response_rejects_malformed_json(self):
+        with self.assertRaisesRegex(RuntimeError, "服务返回了无法识别的数据"):
+            core.parse_response(b'{"message":')
+
+    def test_parse_response_rejects_valid_non_object_json_values(self):
+        for raw in (b"null", b"[]", b'"ok"', b"0"):
+            with self.subTest(raw=raw):
+                with self.assertRaisesRegex(RuntimeError, "服务返回格式不兼容"):
+                    core.parse_response(raw)
+
+
 if __name__ == "__main__":
     unittest.main()
